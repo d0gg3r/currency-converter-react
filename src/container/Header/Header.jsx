@@ -12,12 +12,14 @@ const Header = () => {
   React.useEffect(() => {
     const getData = async () => {
       const result = await fetchData()
-      const usdToUah = (result.rates.USD * result.rates.UAH).toFixed(2)
-      const eurToUah = (usdToUah / result.rates.EUR).toFixed(2)
+      console.log(result)
+      const usdToUah = (result.USD * result.UAH).toFixed(2)
+      const eurToUah = (usdToUah / result.EUR).toFixed(2)
+      console.log(usdToUah)
       setData([usdToUah, eurToUah])
     }
     getData()
-  })
+  }, [])
 
   return (
     <div className="header section__padding flex__center wrapper">
